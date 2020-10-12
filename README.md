@@ -1,6 +1,6 @@
 # 알게된 점
 
-<img src="./dynamicParam.png">
+<img src="./dynamicParam.PNG">
 
 ```javascript
 // 위 사진처럼 NextJs 에서 의 파일명을 [] 묶어 사용하면 모든 패스의 값이 전달되며
@@ -34,7 +34,7 @@ function Test({ item }) {
 }
 ```
 
-<img src="./envFiles.png">
+<img src="./envFiles.PNG">
 
 ```javascript
 // 루트 폴더에 위와같이 env 파일 설정이 가능하며 어디서든지
