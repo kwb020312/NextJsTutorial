@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react'
 import { Loader } from 'semantic-ui-react'
 import Item from '../../src/components/Item'
 
-export default function ID({item}) {
+export default function ID({item , name}) {
 
     return (<>{item && <>
         <Head>
-    <title>{item.name}</title>
-    <meta name="description" content={item.description} />
-    
+            <title>{item.name}</title>
+            <meta name="description" content={item.description} />
         </Head>
+        {name} 환경 입니다.
         <Item item={item} />
     </>}</>)
 }
@@ -25,7 +25,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            item: data
+            item: data,
+            name:process.env.name
         }
     }
 }

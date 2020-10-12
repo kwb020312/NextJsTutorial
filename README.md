@@ -1,31 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 알게된 점
 
-## Getting Started
+<img src="./dynamicParam.png">
 
-First, run the development server:
+```javascript
+// 위 사진처럼 NextJs 에서 의 파일명을 [] 묶어 사용하면 모든 패스의 값이 전달되며
+import {useRouter}
+// 를 통하여
+const router = useRouter()
+router.query.(id)
 
-```bash
-npm run dev
-# or
-yarn dev
+// 를 통하여 접근가능하다
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```javascript
+export async function getServerSideProps(context) {
+  const id = context.params.id;
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+  return {
+    props: {
+      item: data,
+    },
+  };
+}
 
-## Learn More
+// getServerSideProps 를 통하여 접속 전 렌더링을 하여 부드럽게 페이지 전환이 가능하다
 
-To learn more about Next.js, take a look at the following resources:
+// 첫 인자인 context 에는 context.params.[경로] 로 접근이 가능하다
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+// return 안의 값으로 item 이 출력되었으므로
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+function Test({ item }) {
+  // 등으로 받아올 수 있다
+}
+```
 
-## Deploy on Vercel
+<img src="./envFiles.png">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-"# NextJsTutorial" 
+```javascript
+// 루트 폴더에 위와같이 env 파일 설정이 가능하며 어디서든지
+process.env.(변수명)
+// 으로 접근이 가능하다 하지만 브라우저 상에서 접근이 가능한 문자열을 위해선 앞에
+NEXT_PUBLIC_{변수명}
+// 으로 입력해주어야 한다
+```
