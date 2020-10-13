@@ -43,3 +43,13 @@ process.env.(변수명)
 NEXT_PUBLIC_{변수명}
 // 으로 입력해주어야 한다
 ```
+
+<img src="./getStaticPaths.PNG">
+
+```javascript
+//  위 코드는 [id].js 파일이 있다는 가정 하에 id 값이 495, 488, 468 인 페이지들은 build 과정에서 미리 렌더링 해 놓는다는 뜻이다 (빠르게 화면이 나타남)
+
+// 즉 나머지의 경우 사용자가 접근할 때 렌더링 됨
+
+// fallback 옵션이 false 일 경우 위 id 를 제외한 나머지 경로는 모두 404 Error 를 출력한다
+```
