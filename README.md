@@ -53,3 +53,27 @@ NEXT_PUBLIC_{변수명}
 
 // fallback 옵션이 false 일 경우 위 id 를 제외한 나머지 경로는 모두 404 Error 를 출력한다
 ```
+
+<img src="./apis.PNG">
+
+```javascript
+// pages 폴더의 api 안에 js 파일을 만들게 되면 해당 주소로 접근할 경우 json 형식의 api를 줄 수 있다.
+```
+
+<img src="./howToAxios.PNG">
+
+```javascript
+// 전체 주소가 아닌 /api/(폴더명) 으로 접근해야한다
+```
+
+<img src="./setCookie.PNG">
+
+```javascript
+// 해당 방법으로 쿠키를 설정할 수 있다
+```
+
+<img src="./inspectCookie.PNG">
+
+```javascript
+// 해당 방법으로 쿠키를 읽어온다.
+```

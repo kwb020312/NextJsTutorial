@@ -33,7 +33,6 @@ export async function getStaticProps() {
   return {
       props: {
           list: data,
-          name:process.env.name
       }
   }
 }

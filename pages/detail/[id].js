@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Loader } from 'semantic-ui-react'
 import Item from '../../src/components/Item'
 
-export default function ID({item , name}) {
+export default function ID({item}) {
     const router = useRouter()
 
     if(router.isFallback) {
@@ -22,7 +22,6 @@ export default function ID({item , name}) {
             <title>{item.name}</title>
             <meta name="description" content={item.description} />
         </Head>
-        {name} 환경 입니다.
         <Item item={item} />
     </>}</>)
 }
@@ -33,12 +32,12 @@ export async function getStaticPaths() {
     const data = res.data
   
     return {
-        paths: data.slice(0,9).map(item => ({
+        paths: data.map(item => ({
             params: {
                 id: item.id.toString()
             }
         })),
-        fallback: true
+        fallback: false
     }
 }
 
@@ -51,7 +50,6 @@ export async function getStaticProps(context) {
     return {
         props: {
             item: data,
-            name:process.env.name
         }
     }
 }
